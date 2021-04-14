@@ -1,4 +1,4 @@
-package com.yxxx.demo.common.result;
+package com.cxfx.demo.common.result;
 
 import lombok.Data;
 

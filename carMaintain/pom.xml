@@ -8,11 +8,11 @@
 		<version>2.4.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.yxxx</groupId>
-	<artifactId>demo</artifactId>
+	<groupId>com.cxfx</groupId>
+	<artifactId>carMaintain</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>demo</name>
-	<description>BaseProject</description>
+	<name>carMaintain</name>
+	<description>carMaintain</description>
 
 	<properties>
 		<java.version>1.8</java.version>

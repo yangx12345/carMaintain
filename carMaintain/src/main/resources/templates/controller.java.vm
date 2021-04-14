@@ -11,16 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
     #if(${superControllerClassPackage})
     import ${superControllerClassPackage};
     #end
-import com.yxxx.demo.common.result.Result;
-import com.yxxx.demo.common.result.ResultUtil;
-import com.yxxx.demo.common.utils.StringUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 
-import java.util.List;
 import com.yxxx.demo.service.${table.serviceName};
 import com.yxxx.demo.entity.${entity};
 

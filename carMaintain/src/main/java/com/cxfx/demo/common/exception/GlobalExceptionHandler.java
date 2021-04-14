@@ -1,8 +1,8 @@
-package com.yxxx.demo.common.exception;
+package com.cxfx.demo.common.exception;
 
 
-import com.yxxx.demo.common.result.Result;
-import com.yxxx.demo.common.result.ResultUtil;
+import com.cxfx.demo.common.result.Result;
+import com.cxfx.demo.common.result.ResultUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ControllerAdvice;

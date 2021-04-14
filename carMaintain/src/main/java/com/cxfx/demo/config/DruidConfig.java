@@ -1,4 +1,4 @@
-package com.yxxx.demo.config;
+package com.cxfx.demo.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import org.slf4j.Logger;
@@ -14,7 +14,6 @@ import java.sql.SQLException;
 /**
  * Description: 数据库连接池配置
  *
- * @author yangxiao
  * @date 2020-11-24 16:37
  **/
 @Configuration

@@ -1,4 +1,4 @@
-package com.yxxx.demo.generate;
+package com.cxfx.demo.generate;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.annotation.IdType;
@@ -16,7 +16,6 @@ import java.util.List;
 /**
  * Description: 代码生成器
  *
- * @author yangxiao
  * @date 2020-11-24 17:08
  **/
 
@@ -43,7 +42,7 @@ public class CodeGenerator {
 	/**
 	 * 包名
 	 **/
-	private static final String PACKAGE_NAME = "com.yxxx.demo";
+	private static final String PACKAGE_NAME = "com.cxfx.demo";
 	/**
 	 * 基础controller
 	 **/
@@ -55,7 +54,7 @@ public class CodeGenerator {
 	/**
 	 * 作者
 	 **/
-	private static final String AUTHOR = "yangxiao";
+	private static final String AUTHOR = "cxfx";
 
 	public static void main(String[] args) {
 		// 代码生成器
@@ -103,7 +102,7 @@ public class CodeGenerator {
 		// 包配置
 		PackageConfig pc = new PackageConfig();
 		//父包名。如果为空，将下面子包名必须写全部， 否则就只需写子包名
-		pc.setParent("com.yxxx.demo");
+		pc.setParent("com.cxfx.demo");
 		//pojo或entity包名
 		pc.setEntity("entity");
 		//mapper包名

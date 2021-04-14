@@ -1,4 +1,4 @@
-package com.yxxx.demo.common.utils;
+package com.cxfx.demo.common.utils;
 
 
 import java.util.Collection;
