@@ -702,6 +702,27 @@ export const asyncRoutes = [
     ],
   },
   {
+    path: '/employee',
+    component: Layout,
+    redirect: '/employee/index',
+    alwaysShow: false,
+    meta: {
+      title: '员工信息',
+      icon: 'apps-line',
+    },
+    children: [
+      {
+        path: 'index',
+        name: 'icon',
+        component: () => import('@/views/employee/index'),
+        meta: {
+          title: '图标',
+          icon: 'apps-line',
+        },
+      },
+    ],
+  },
+  {
     path: '/readme1',
     component: Layout,
     redirect: '/readme',
@@ -763,7 +784,7 @@ export const asyncRoutes = [
     path: '/*',
     redirect: '/404',
     hidden: true,
-  },
+  }
 ]
 const router = createRouter({
   history: config.routerMode==='history'?createWebHistory():createWebHashHistory(),
