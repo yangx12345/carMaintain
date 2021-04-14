@@ -14,7 +14,6 @@ import java.sql.SQLException;
 /**
  * Description: 数据库连接池配置
  *
- * @date 2020-11-24 16:37
  **/
 @Configuration
 public class DruidConfig {
