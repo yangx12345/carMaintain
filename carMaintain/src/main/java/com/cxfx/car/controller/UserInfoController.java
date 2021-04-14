@@ -1,4 +1,4 @@
-package ${package.Controller};
+package com.cxfx.car.controller;
 
 
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -7,44 +7,22 @@ import com.github.pagehelper.PageInfo;
 import com.cxfx.car.common.result.Result;
 import com.cxfx.car.common.result.ResultUtil;
 import com.cxfx.car.common.utils.StringUtils;
-#if(${restControllerStyle})
 import org.springframework.web.bind.annotation.RestController;
-#else
-import org.springframework.stereotype.Controller;
-#end
-#if(${superControllerClassPackage})
-import ${superControllerClassPackage};
-#end
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import ${package.Service}.${table.serviceName};
-import ${package.Entity}.${entity};
+import com.cxfx.car.service.UserInfoService;
+import com.cxfx.car.entity.UserInfo;
 
 import java.util.List;
 
 @Slf4j
-#if(${restControllerStyle})
 @RestController
-#else
-@Controller
-#end
-#set($path=${entity})
-@RequestMapping("/$path.toLowerCase()")
-#if(${kotlin})
-class ${table.controllerName}#if(${superControllerClass}) : ${superControllerClass}()#end
-
-#else
-#if(${superControllerClass})
-public class ${table.controllerName} extends ${superControllerClass} {
-#else
-public class ${table.controllerName} {
-#end
-#set($str=${table.serviceName})
-#set($service=$str.substring(0,1).toLowerCase()+$str.substring(1))
+@RequestMapping("/userinfo")
+public class UserInfoController {
     @Autowired
-    private ${table.serviceName} $service;
+    private UserInfoService userInfoService;
 
     /**
     * 根据id查询实体
@@ -56,21 +34,21 @@ public class ${table.controllerName} {
         {
             return ResultUtil.parameterError();
         }
-        return ResultUtil.success(${service}.getEntityById(id));
+        return ResultUtil.success(userInfoService.getEntityById(id));
     }
 
     /**
     * 根据条件查询实体列表
     */
     @PostMapping("getListByCondition")
-    public Result getListByCondition(@RequestBody ${entity} condition,@RequestParam("pageIndex") Integer pageIndex,@RequestParam("pageSize") Integer pageSize)
+    public Result getListByCondition(@RequestBody UserInfo condition,@RequestParam("pageIndex") Integer pageIndex,@RequestParam("pageSize") Integer pageSize)
     {
         if(condition==null || pageIndex==null || pageIndex< 1||pageSize==null||pageSize< 1){
 		 return ResultUtil.parameterError();
         }
 		PageHelper.startPage(pageIndex, pageSize);
-        List<${entity}> list= ${service}.getListByCondition(condition);
-		PageInfo<${entity}> result = new PageInfo<>(list);
+        List<UserInfo> list= userInfoService.getListByCondition(condition);
+		PageInfo<UserInfo> result = new PageInfo<>(list);
         return ResultUtil.success(result);
     }
 
@@ -78,12 +56,12 @@ public class ${table.controllerName} {
     * 增加实体
     */
     @PostMapping("add")
-    public Result add(@RequestBody ${entity} entity)
+    public Result add(@RequestBody UserInfo entity)
     {
         if(entity==null){
 		return ResultUtil.parameterError();
         }
-        return ResultUtil.judgmentResult(${service}.saveEntity(entity));
+        return ResultUtil.judgmentResult(userInfoService.saveEntity(entity));
     }
 
 
@@ -91,12 +69,12 @@ public class ${table.controllerName} {
     * 更新实体
     */
     @PutMapping("update")
-    public Result update(@RequestBody ${entity} entity)
+    public Result update(@RequestBody UserInfo entity)
     {
         if(entity==null){
 		return ResultUtil.parameterError();
         }
-        return ResultUtil.judgmentResult(${service}.updateEntity(entity));
+        return ResultUtil.judgmentResult(userInfoService.updateEntity(entity));
     }
 
 
@@ -109,7 +87,7 @@ public class ${table.controllerName} {
         if(id==null){
 		 return ResultUtil.parameterError();
         }
-        return ResultUtil.judgmentResult(${service}.deleteById(id));
+        return ResultUtil.judgmentResult(userInfoService.deleteById(id));
     }
 
     /**
@@ -122,8 +100,7 @@ public class ${table.controllerName} {
         {
 		  return ResultUtil.parameterError();
         }
-        return ResultUtil.judgmentResult(${service}.deleteByIds(ids));
+        return ResultUtil.judgmentResult(userInfoService.deleteByIds(ids));
     }
 }
 
-#end

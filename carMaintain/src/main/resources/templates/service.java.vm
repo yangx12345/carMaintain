@@ -11,7 +11,7 @@ interface ${table.serviceName} : ${superServiceClass}<${entity}>
 public interface ${table.serviceName} extends ${superServiceClass}<${entity}> {
 
     /**
-     * 根据id查询实体列表
+     * 根据id查询实体
      */
     public ${entity} getEntityById(Integer id);
 

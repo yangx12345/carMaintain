@@ -1,4 +1,4 @@
-package com.cxfx.demo.generate;
+package com.cxfx.car.generate;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.annotation.IdType;
@@ -42,7 +42,7 @@ public class CodeGenerator {
 	/**
 	 * 包名
 	 **/
-	private static final String PACKAGE_NAME = "com.cxfx.demo";
+	private static final String PACKAGE_NAME = "com.cxfx.car";
 	/**
 	 * 基础controller
 	 **/
@@ -81,8 +81,9 @@ public class CodeGenerator {
 		//指定生成的主键的ID类型
 		gc.setIdType(IdType.AUTO);
 		//时间类型对应策略
-		gc.setDateType(DateType.ONLY_DATE);
+		gc.setDateType(DateType.TIME_PACK);
 		gc.setBaseColumnList(true);
+		gc.setKotlin(false);
 		mpg.setGlobalConfig(gc);
 
 		// 数据源配置
@@ -102,7 +103,7 @@ public class CodeGenerator {
 		// 包配置
 		PackageConfig pc = new PackageConfig();
 		//父包名。如果为空，将下面子包名必须写全部， 否则就只需写子包名
-		pc.setParent("com.cxfx.demo");
+		pc.setParent("com.cxfx.car");
 		//pojo或entity包名
 		pc.setEntity("entity");
 		//mapper包名
@@ -159,7 +160,7 @@ public class CodeGenerator {
 		// 策略配置
 		StrategyConfig strategy = new StrategyConfig();
 		//设置要映射的表名，可传多个
-		strategy.setInclude("salary");
+		strategy.setInclude("user_info");
 		//去掉表前缀
 		//strategy.setTablePrefix("t_");
 		//字段名下划线转驼峰命名

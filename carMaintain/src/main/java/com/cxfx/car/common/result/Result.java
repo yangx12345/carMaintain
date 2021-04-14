@@ -1,4 +1,4 @@
-package com.cxfx.demo.common.result;
+package com.cxfx.car.common.result;
 
 
 import lombok.Data;

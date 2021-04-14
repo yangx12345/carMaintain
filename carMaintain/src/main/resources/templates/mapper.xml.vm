@@ -29,7 +29,7 @@
         ${table.fieldNames}
        from ${table.name} a
     </sql>
-    <select id="getListByCondition" parameterType="${entity}" resultMap="BaseResultMap">
+    <select id="getListByCondition" parameterType="${package.Entity}.${entity}" resultMap="BaseResultMap">
         <include refid="selectVo"></include>
          where 1=1
     </select>

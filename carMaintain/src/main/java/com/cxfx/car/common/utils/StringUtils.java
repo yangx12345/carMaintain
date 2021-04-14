@@ -1,4 +1,4 @@
-package com.cxfx.demo.common.utils;
+package com.cxfx.car.common.utils;
 
 
 import java.util.Collection;

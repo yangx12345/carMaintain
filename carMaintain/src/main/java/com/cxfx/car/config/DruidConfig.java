@@ -1,4 +1,4 @@
-package com.cxfx.demo.config;
+package com.cxfx.car.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import org.slf4j.Logger;

@@ -1,6 +1,4 @@
-package com.cxfx.demo.common.result;
-
-import lombok.Data;
+package com.cxfx.car.common.result;
 
 
 public enum ResultEnum {

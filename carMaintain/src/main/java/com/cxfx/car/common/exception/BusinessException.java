@@ -1,7 +1,7 @@
-package com.cxfx.demo.common.exception;
+package com.cxfx.car.common.exception;
 
 
-import com.cxfx.demo.common.result.ResultEnum;
+import com.cxfx.car.common.result.ResultEnum;
 import lombok.Data;
 
 @Data

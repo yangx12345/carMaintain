@@ -1,9 +1,9 @@
-package ${package.ServiceImpl};
+package com.cxfx.car.service.impl;
 
-import ${package.Entity}.${entity};
-import ${package.Mapper}.${table.mapperName};
-import ${package.Service}.${table.serviceName};
-import ${superServiceImplClassPackage};
+import com.cxfx.car.entity.UserInfo;
+import com.cxfx.car.mapper.UserInfoMapper;
+import com.cxfx.car.service.UserInfoService;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,37 +17,27 @@ import java.util.List;
 @Service
 @Transactional(readOnly = true)
 @Slf4j
-#foreach($field in ${table.fields})
-    #if(${field.keyFlag})
-        #set($keyPropertyName=${field.propertyName})
-    #end
-#end
-#if(${kotlin})
-open class ${table.serviceImplName} : ${superServiceImplClass}<${table.mapperName}, ${entity}>(), ${table.serviceName} {
-
-        }
-#else
-public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.mapperName}, ${entity}>implements ${table.serviceName} {
+public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo>implements UserInfoService {
 
     @Override
-    public ${entity} getEntityById(Integer id){
+    public UserInfo getEntityById(Integer id){
         return this.getById(id);
     }
 
     @Override
-    public List<${entity}>getListByCondition(${entity} condition){
+    public List<UserInfo>getListByCondition(UserInfo condition){
 		return baseMapper.getListByCondition(condition);
     }
 
     @Override
     @Transactional(readOnly=false,rollbackFor=Exception.class)
-    public boolean saveEntity(${entity} entity){
+    public boolean saveEntity(UserInfo entity){
         return this.save(entity);
     }
 
     @Override
     @Transactional(readOnly=false,rollbackFor=Exception.class)
-    public boolean updateEntity(${entity} entity){
+    public boolean updateEntity(UserInfo entity){
         return this.updateById(entity);
     }
 
@@ -65,4 +55,3 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
         return this.removeByIds(idList);
     }
 }
-#end
