@@ -34,7 +34,7 @@ public class CodeGenerator {
 	/**
 	 * 数据库连接信息
 	 **/
-	private static final String DB_URL = "jdbc:mysql://localhost:3306/personnel?useUnicode=true&characterEncoding=UTF-8&useSSL=false";
+	private static final String DB_URL = "jdbc:mysql://localhost:3306/carmaintain?useUnicode=true&characterEncoding=UTF-8&useSSL=false";
 	private static final String DRIVER = "com.mysql.jdbc.Driver";
 	private static final String USER_NAME = "root";
 	private static final String PASSWORD = "123456";
