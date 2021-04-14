@@ -1,0 +1,112 @@
+2020/09/23 09:26:47 [error] 5852#10108: *10 CreateFile() "E:\lyCode\sokPcSystem2.1New\dist/html/favicon.ico" failed (2: The system cannot find the file specified), client: 192.168.0.169, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "192.168.0.169"
+2020/09/23 09:26:54 [error] 5852#10108: *10 CreateFile() "E:\lyCode\sokPcSystem2.1New\dist/html/favicon.ico" failed (2: The system cannot find the file specified), client: 192.168.0.169, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "192.168.0.169"
+2020/09/23 09:26:55 [error] 5852#10108: *10 CreateFile() "E:\lyCode\sokPcSystem2.1New\dist/html/favicon.ico" failed (2: The system cannot find the file specified), client: 192.168.0.169, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "192.168.0.169"
+2020/09/23 09:26:56 [error] 5852#10108: *10 CreateFile() "E:\lyCode\sokPcSystem2.1New\dist/html/favicon.ico" failed (2: The system cannot find the file specified), client: 192.168.0.169, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "192.168.0.169"
+2020/09/23 09:26:56 [error] 5852#10108: *10 CreateFile() "E:\lyCode\sokPcSystem2.1New\dist/html/favicon.ico" failed (2: The system cannot find the file specified), client: 192.168.0.169, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "192.168.0.169"
+2020/09/23 09:47:03 [notice] 11060#1464: signal process started
+2020/09/23 14:49:58 [error] 6676#12360: *1 CreateFile() "E:\lyProject\supplementPhone\dist/html/app/user" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET /app/user HTTP/1.1", host: "localhost:8082"
+2020/09/23 14:49:58 [error] 6676#12360: *1 CreateFile() "E:\lyProject\supplementPhone\dist/html/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8082", referrer: "http://localhost:8082/app/user"
+2020/09/23 14:52:40 [emerg] 9952#13208: unknown directive "　　listen" in E:\lyProject\supplementPhone\dist/conf/nginx.conf:37
+2020/09/23 14:52:56 [emerg] 5804#12496: unknown directive "　　listen" in E:\lyProject\supplementPhone\dist/conf/nginx.conf:37
+2020/09/23 14:53:34 [emerg] 5880#1168: unknown directive "　　listen" in E:\lyProject\supplementPhone\dist/conf/nginx.conf:37
+2020/09/23 14:54:08 [emerg] 11496#9364: unknown directive "　　listen" in E:\lyProject\supplementPhone\dist/conf/nginx.conf:37
+2020/09/23 14:54:08 [alert] 2840#12020: worker process 11496 exited with code 1
+2020/09/23 14:54:08 [alert] 2840#12020: could not respawn worker
+2020/09/23 14:58:16 [emerg] 10420#6508: unknown directive "　　listen" in E:\lyProject\supplementPhone\dist/conf/nginx.conf:37
+2020/09/23 15:00:58 [emerg] 1096#7300: duplicate location "/" in E:\lyProject\supplementPhone\dist/conf/nginx.conf:76
+2020/09/23 15:01:25 [notice] 13252#9816: signal process started
+2020/09/23 15:12:34 [notice] 7940#10056: signal process started
+2020/09/23 15:38:45 [notice] 3680#5204: signal process started
+2020/09/23 17:57:10 [notice] 15992#7116: signal process started
+2020/09/26 17:03:17 [notice] 15244#11236: signal process started
+2020/10/09 16:40:38 [notice] 15608#9032: signal process started
+2020/10/09 17:30:19 [notice] 14736#14812: signal process started
+2020/10/11 14:35:00 [notice] 4772#22888: signal process started
+2020/10/11 14:45:32 [notice] 18944#22060: signal process started
+2020/10/12 11:05:18 [notice] 15680#23776: signal process started
+2020/10/27 11:07:32 [notice] 15356#13428: signal process started
+2020/10/27 14:47:06 [notice] 8252#8404: signal process started
+2020/10/27 14:51:29 [notice] 9456#13812: signal process started
+2020/10/27 14:51:29 [error] 9456#13812: CreateFile() "D:\lyProject\supplementPhone\dist/logs/nginx.pid" failed (2: The system cannot find the file specified)
+2020/10/27 14:51:38 [notice] 12908#15060: signal process started
+2020/10/27 14:51:38 [error] 12908#15060: CreateFile() "D:\lyProject\supplementPhone\dist/logs/nginx.pid" failed (2: The system cannot find the file specified)
+2020/10/27 14:51:39 [notice] 14536#1380: signal process started
+2020/10/27 14:51:39 [error] 14536#1380: CreateFile() "D:\lyProject\supplementPhone\dist/logs/nginx.pid" failed (2: The system cannot find the file specified)
+2020/10/27 14:51:42 [notice] 5648#15864: signal process started
+2020/10/27 14:51:42 [error] 5648#15864: CreateFile() "D:\lyProject\supplementPhone\dist/logs/nginx.pid" failed (2: The system cannot find the file specified)
+2020/10/27 14:51:45 [notice] 16072#14524: signal process started
+2020/10/27 14:51:45 [error] 16072#14524: CreateFile() "D:\lyProject\supplementPhone\dist/logs/nginx.pid" failed (2: The system cannot find the file specified)
+2020/10/27 14:52:11 [notice] 9756#8528: signal process started
+2020/10/27 14:52:11 [error] 9756#8528: CreateFile() "D:\lyProject\supplementPhone\dist/logs/nginx.pid" failed (2: The system cannot find the file specified)
+2020/10/27 16:07:57 [notice] 15836#16180: signal process started
+2020/11/05 18:37:06 [notice] 20180#13092: signal process started
+2020/11/06 11:28:31 [notice] 18404#19856: signal process started
+2020/11/06 17:48:01 [notice] 21148#9984: signal process started
+2020/11/16 16:21:10 [notice] 33012#9812: signal process started
+2020/11/16 16:21:14 [notice] 700#18448: signal process started
+2020/11/16 16:21:14 [error] 700#18448: CreateFile() "D:\lyProject\supplementPhone\dist/logs/nginx.pid" failed (2: The system cannot find the file specified)
+2020/11/16 16:36:50 [notice] 11952#13696: signal process started
+2020/11/19 16:33:36 [notice] 15096#15680: signal process started
+2020/11/20 09:53:17 [notice] 5228#9516: signal process started
+2020/11/20 10:09:17 [notice] 13216#4120: signal process started
+2020/11/20 11:17:48 [notice] 2148#11964: signal process started
+2020/11/21 15:16:25 [notice] 8512#3224: signal process started
+2020/11/26 10:03:05 [notice] 12920#13156: signal process started
+2020/11/26 10:03:05 [error] 12920#13156: CreateFile() "D:\lyProject\supplementPhone\dist/logs/nginx.pid" failed (2: The system cannot find the file specified)
+2020/11/26 10:08:28 [notice] 17692#17684: signal process started
+2020/11/30 10:42:52 [notice] 22348#16240: signal process started
+2020/11/30 10:42:52 [error] 22348#16240: CreateFile() "D:\lyProject\supplementPhone\dist/logs/nginx.pid" failed (2: The system cannot find the file specified)
+2020/11/30 10:48:23 [notice] 12184#22484: signal process started
+2020/12/02 15:59:16 [notice] 24020#25612: signal process started
+2020/12/02 15:59:16 [error] 24020#25612: CreateFile() "D:\lyProject\supplementPhone\dist/logs/nginx.pid" failed (2: The system cannot find the file specified)
+2020/12/02 16:35:21 [notice] 19312#26272: signal process started
+2020/12/02 16:35:27 [notice] 28192#27920: signal process started
+2020/12/02 16:35:27 [error] 28192#27920: CreateFile() "D:\lyProject\supplementPhone\dist/logs/nginx.pid" failed (2: The system cannot find the file specified)
+2020/12/02 17:49:13 [notice] 18836#28232: signal process started
+2020/12/04 17:31:19 [notice] 14588#11156: signal process started
+2020/12/09 13:53:02 [notice] 11724#8708: signal process started
+2020/12/09 13:53:02 [error] 11724#8708: CreateFile() "D:\lyProject\supplementPhone\dist/logs/nginx.pid" failed (2: The system cannot find the file specified)
+2020/12/10 10:00:11 [notice] 12912#3560: signal process started
+2020/12/29 10:52:30 [notice] 10744#10748: signal process started
+2020/12/29 15:26:28 [notice] 6580#2136: signal process started
+2020/12/29 15:26:28 [error] 6580#2136: OpenEvent("Global\ngx_stop_10800") failed (2: The system cannot find the file specified)
+2020/12/29 16:03:29 [error] 11040#8248: *34 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 127.0.0.1, server: localhost, request: "GET /static/js/chunk-2d0b6851.c071cc27.js HTTP/1.1", host: "localhost"
+2020/12/29 18:05:37 [notice] 9028#12092: signal process started
+2020/12/29 18:10:05 [notice] 4400#5208: signal process started
+2020/12/29 18:10:05 [error] 4400#5208: CreateFile() "D:\sokpc2\dist/logs/nginx.pid" failed (2: The system cannot find the file specified)
+2020/12/29 18:12:08 [notice] 8420#11412: signal process started
+2020/12/29 18:14:08 [notice] 7756#11864: signal process started
+2020/12/29 18:14:15 [notice] 6676#9096: signal process started
+2020/12/29 18:14:15 [error] 6676#9096: CreateFile() "D:\sokpc2\dist/logs/nginx.pid" failed (2: The system cannot find the file specified)
+2020/12/30 09:36:40 [notice] 11140#11108: signal process started
+2020/12/30 16:01:45 [notice] 8396#3200: signal process started
+2020/12/30 16:04:41 [notice] 6000#6400: signal process started
+2020/12/30 16:04:41 [error] 6000#6400: CreateFile() "D:\sokpc2\dist/logs/nginx.pid" failed (2: The system cannot find the file specified)
+2020/12/30 16:16:25 [notice] 13880#732: signal process started
+2021/01/12 20:12:53 [notice] 12516#16040: signal process started
+2021/01/13 14:19:49 [notice] 13476#8008: signal process started
+2021/01/13 14:21:26 [notice] 5512#4532: signal process started
+2021/01/13 14:21:26 [error] 5512#4532: CreateFile() "D:\sokpc2\vue3+antDesign\vue3.0-AntDesign\dist/logs/nginx.pid" failed (2: The system cannot find the file specified)
+2021/01/13 16:59:52 [error] 13360#2452: *33 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 127.0.0.1, server: localhost, request: "GET /order/orderRegister HTTP/1.1", host: "localhost"
+2021/01/13 16:59:52 [error] 13360#2452: *34 rewrite or internal redirection cycle while internally redirecting to "/index.html", client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/order/orderRegister"
+2021/01/14 09:53:06 [notice] 9400#4020: signal process started
+2021/01/22 13:47:09 [notice] 9448#20456: signal process started
+2021/01/22 14:34:13 [notice] 23404#9740: signal process started
+2021/01/22 17:02:14 [notice] 18708#19036: signal process started
+2021/01/25 15:30:13 [notice] 20496#23444: signal process started
+2021/01/25 16:43:39 [notice] 23044#23888: signal process started
+2021/01/26 09:52:05 [notice] 25568#20160: signal process started
+2021/01/28 14:23:53 [notice] 13544#5544: signal process started
+2021/01/29 15:26:59 [notice] 11428#9720: signal process started
+2021/01/29 15:48:28 [notice] 14776#15092: signal process started
+2021/01/29 15:49:51 [notice] 3308#4840: signal process started
+2021/01/29 15:50:02 [notice] 5748#9696: signal process started
+2021/01/30 10:00:28 [notice] 5316#15540: signal process started
+2021/01/30 10:00:28 [error] 5316#15540: CreateFile() "D:\vue3.0-AntDesign\dist/logs/nginx.pid" failed (2: The system cannot find the file specified)
+2021/01/30 11:46:17 [notice] 6820#14452: signal process started
+2021/02/01 17:46:42 [notice] 3756#10976: signal process started
+2021/02/05 10:48:20 [notice] 16392#2876: signal process started
+2021/02/06 14:21:40 [notice] 19360#5808: signal process started
+2021/03/01 10:03:44 [notice] 10392#12040: signal process started
+2021/03/17 09:21:15 [notice] 16404#12716: signal process started
+2021/04/05 16:40:11 [notice] 4884#15060: signal process started
