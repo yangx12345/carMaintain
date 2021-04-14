@@ -6,7 +6,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * 主程序
  *
- * @date 2020-12-08 9:58
  **/
 @SpringBootApplication
 public class CarMaintainApplication {
