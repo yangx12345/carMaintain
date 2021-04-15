@@ -15,13 +15,14 @@
                     <result column="email" property="email"/>
                     <result column="address" property="address"/>
                     <result column="idcard" property="idcard"/>
+                    <result column="work_id" property="workId"/>
                     <result column="workstatus" property="workstatus"/>
                     <result column="remark" property="remark"/>
         </resultMap>
 
     <sql id="selectVo">
         select
-        user_id, username, password, role, name, departId, gender, birthday, phone, email, address, idcard, workstatus, remark
+        user_id, username, password, role, name, departId, gender, birthday, phone, email, address, idcard, work_id, workstatus, remark
        from user_info a
     </sql>
     <select id="getListByCondition" parameterType="com.cxfx.car.entity.UserInfo" resultMap="BaseResultMap">

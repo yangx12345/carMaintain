@@ -36,7 +36,7 @@ public class UserInfo implements Serializable {
     private String password;
 
     /**
-     * 角色 0系统管理员 1管理员 2员工
+     * 角色 0系统管理员 1接待员 2技工
      */
     @TableField("role")
     private String role;
@@ -54,7 +54,7 @@ public class UserInfo implements Serializable {
     private Integer departId;
 
     /**
-     * 性别
+     * 性别 0男 1女
      */
     @TableField("gender")
     private String gender;
@@ -88,6 +88,12 @@ public class UserInfo implements Serializable {
      */
     @TableField("idcard")
     private String idcard;
+
+    /**
+     * 员工工号
+     */
+    @TableField("work_id")
+    private String workId;
 
     /**
      * 工作状态 0正常 1已出工
