@@ -1,7 +1,7 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : localhost
+ Source Server         : yang
  Source Server Type    : MySQL
  Source Server Version : 50728
  Source Host           : localhost:3306
@@ -11,7 +11,7 @@
  Target Server Version : 50728
  File Encoding         : 65001
 
- Date: 15/04/2021 17:23:04
+ Date: 15/04/2021 21:09:11
 */
 
 SET NAMES utf8mb4;
@@ -24,6 +24,7 @@ DROP TABLE IF EXISTS `car_info`;
 CREATE TABLE `car_info`  (
   `car_id` int(11) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT COMMENT '车辆编号',
   `customer_id` int(11) NOT NULL COMMENT '客户编号',
+  `car_code` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '车辆编码(车厂区分车辆的编码)',
   `name` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '客户姓名',
   `car_number` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '车牌号',
   `car_model` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '车型',
@@ -53,6 +54,7 @@ CREATE TABLE `customer_info`  (
   `password` varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '密码',
   `name` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '姓名',
   `car_id` int(11) NULL DEFAULT NULL COMMENT '车辆信息编号',
+  `car_code` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '车辆编码',
   `gender` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0' COMMENT '性别 0男 1女',
   `birthday` date NULL DEFAULT NULL COMMENT '生日',
   `phone` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '手机号码',
@@ -112,6 +114,7 @@ DROP TABLE IF EXISTS `factory`;
 CREATE TABLE `factory`  (
   `id` int(11) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT COMMENT '出入厂记录编号',
   `car_id` int(11) NOT NULL COMMENT '车辆信息编号',
+  `car_code` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '车辆编码',
   `costomer_id` int(11) NOT NULL COMMENT '客户编号',
   `name` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '客户姓名',
   `status` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0' COMMENT '车辆状态 0待入厂1已入场2已出厂',
@@ -126,6 +129,29 @@ CREATE TABLE `factory`  (
 -- ----------------------------
 
 -- ----------------------------
+-- Table structure for maintain_dispatch
+-- ----------------------------
+DROP TABLE IF EXISTS `maintain_dispatch`;
+CREATE TABLE `maintain_dispatch`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '派工编号',
+  `user_id` int(11) NOT NULL COMMENT '技工编号',
+  `user_name` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '技工名字',
+  `order_id` int(11) NULL DEFAULT NULL COMMENT '订单编号',
+  `customer_id` int(11) NULL DEFAULT NULL COMMENT '客户编号',
+  `customer_name` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '客户名称',
+  `car_id` int(11) NULL DEFAULT NULL COMMENT '车辆编号',
+  `car_code` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '车辆编码',
+  `time` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP(0) COMMENT '派工时间',
+  `status` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '0' COMMENT '状态 0进行中1已完成',
+  `remark` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '备注',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '保养派工管理表' ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of maintain_dispatch
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for maintain_project
 -- ----------------------------
 DROP TABLE IF EXISTS `maintain_project`;
@@ -133,13 +159,37 @@ CREATE TABLE `maintain_project`  (
   `project_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '保养项目编号',
   `project_name` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '保养项目名称',
   `description` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '项目描述',
-  `price` decimal(10, 2) NULL DEFAULT NULL COMMENT '项目保养价格',
+  `price` decimal(10, 2) NULL DEFAULT NULL COMMENT '保养价格',
+  `order_price` decimal(10, 2) NULL DEFAULT NULL COMMENT '预定定金',
   `remark` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`project_id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '保养项目表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of maintain_project
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for order
+-- ----------------------------
+DROP TABLE IF EXISTS `order`;
+CREATE TABLE `order`  (
+  `order_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '订单编号',
+  `customer_id` int(11) NOT NULL COMMENT '客户编号',
+  `customer_name` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '客户姓名',
+  `project_id` int(11) NOT NULL COMMENT '保养项目编号',
+  `project_name` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '保养项目名称',
+  `order_price` decimal(10, 2) NULL DEFAULT NULL COMMENT '预付定金',
+  `price` decimal(10, 2) NULL DEFAULT NULL COMMENT '保养费用',
+  `status` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '订单状态  1已发起(已支付定金)2进行中3已完成 4已取消',
+  `maintain_time` datetime(0) NULL DEFAULT NULL COMMENT '到店保养时间',
+  `create_time` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP(0) COMMENT '预定时间',
+  `remark` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '备注',
+  PRIMARY KEY (`order_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '订单表' ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of order
 -- ----------------------------
 
 -- ----------------------------
@@ -176,6 +226,7 @@ DROP TABLE IF EXISTS `reception`;
 CREATE TABLE `reception`  (
   `reception_id` int(11) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT COMMENT '接待编号',
   `user_id` int(11) NOT NULL COMMENT '接待员编号',
+  `work_id` char(6) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '接待员工号',
   `user_name` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '接待员姓名',
   `order_id` int(11) NULL DEFAULT NULL COMMENT '订单编号',
   `customer_id` int(11) NOT NULL COMMENT '客户编号',
@@ -187,6 +238,33 @@ CREATE TABLE `reception`  (
 
 -- ----------------------------
 -- Records of reception
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for settle
+-- ----------------------------
+DROP TABLE IF EXISTS `settle`;
+CREATE TABLE `settle`  (
+  `settle_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '结算编号',
+  `user_id` int(11) NOT NULL COMMENT '结算员编号',
+  `work_id` char(6) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '结算员工号',
+  `user_name` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '结算员姓名',
+  `customer_id` int(11) NULL DEFAULT NULL COMMENT '客户编号',
+  `customer_name` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '客户名字',
+  `order_id` int(11) NULL DEFAULT NULL COMMENT '订单编号',
+  `project_id` int(11) NULL DEFAULT NULL COMMENT '保养编号',
+  `project_name` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '保养名字',
+  `project_price` decimal(10, 2) NULL DEFAULT NULL COMMENT '保养价格',
+  `goods` json NULL COMMENT '商品json [{\'id\':\'\',\'name\':\'\',\'price\':\'\'}]',
+  `goods_price` decimal(10, 2) NULL DEFAULT NULL COMMENT '商品总价格',
+  `total_price` decimal(10, 2) NULL DEFAULT NULL COMMENT '总价格',
+  `settle_time` datetime(0) NULL DEFAULT NULL COMMENT '结算时间',
+  `remark` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '备注',
+  PRIMARY KEY (`settle_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of settle
 -- ----------------------------
 
 -- ----------------------------
@@ -242,6 +320,9 @@ CREATE TABLE `warehouse`  (
 DROP TABLE IF EXISTS `warehouse_record`;
 CREATE TABLE `warehouse_record`  (
   `id` int(11) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT COMMENT '出入库记录编号',
+  `user_id` int(11) NOT NULL COMMENT '操作员编号',
+  `work_id` char(6) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '操作员工号',
+  `user_name` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '操作员姓名',
   `warehouse_id` int(11) NOT NULL COMMENT '商品编号',
   `name` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '商品名称',
   `status` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '状态 0入库 1出库',
