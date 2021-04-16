@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cxfx.car.mapper.OrderMapper">
+        <!-- 通用查询映射结果 -->
+        <resultMap id="BaseResultMap" type="com.cxfx.car.entity.Order">
+                    <id column="order_id" property="orderId"/>
+                    <result column="customer_id" property="customerId"/>
+                    <result column="customer_name" property="customerName"/>
+                    <result column="project_id" property="projectId"/>
+                    <result column="project_name" property="projectName"/>
+                    <result column="order_price" property="orderPrice"/>
+                    <result column="price" property="price"/>
+                    <result column="status" property="status"/>
+                    <result column="maintain_time" property="maintainTime"/>
+                    <result column="create_time" property="createTime"/>
+                    <result column="remark" property="remark"/>
+        </resultMap>
+
+    <sql id="selectVo">
+        select
+        order_id, customer_id, customer_name, project_id, project_name, order_price, price, status, maintain_time, create_time, remark
+       from order a
+    </sql>
+    <select id="getListByCondition" parameterType="com.cxfx.car.entity.Order" resultMap="BaseResultMap">
+        <include refid="selectVo"></include>
+         where 1=1
+    </select>
+
+</mapper>

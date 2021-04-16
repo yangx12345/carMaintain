@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cxfx.car.mapper.SettleMapper">
+        <!-- 通用查询映射结果 -->
+        <resultMap id="BaseResultMap" type="com.cxfx.car.entity.Settle">
+                    <id column="settle_id" property="settleId"/>
+                    <result column="user_id" property="userId"/>
+                    <result column="work_id" property="workId"/>
+                    <result column="user_name" property="userName"/>
+                    <result column="customer_id" property="customerId"/>
+                    <result column="customer_name" property="customerName"/>
+                    <result column="order_id" property="orderId"/>
+                    <result column="project_id" property="projectId"/>
+                    <result column="project_name" property="projectName"/>
+                    <result column="project_price" property="projectPrice"/>
+                    <result column="goods" property="goods"/>
+                    <result column="goods_price" property="goodsPrice"/>
+                    <result column="total_price" property="totalPrice"/>
+                    <result column="settle_time" property="settleTime"/>
+                    <result column="remark" property="remark"/>
+        </resultMap>
+
+    <sql id="selectVo">
+        select
+        settle_id, user_id, work_id, user_name, customer_id, customer_name, order_id, project_id, project_name, project_price, goods, goods_price, total_price, settle_time, remark
+       from settle a
+    </sql>
+    <select id="getListByCondition" parameterType="com.cxfx.car.entity.Settle" resultMap="BaseResultMap">
+        <include refid="selectVo"></include>
+         where 1=1
+    </select>
+
+</mapper>

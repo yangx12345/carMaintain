@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cxfx.car.mapper.FactoryMapper">
+        <!-- 通用查询映射结果 -->
+        <resultMap id="BaseResultMap" type="com.cxfx.car.entity.Factory">
+                    <id column="id" property="id"/>
+                    <result column="car_id" property="carId"/>
+                    <result column="car_code" property="carCode"/>
+                    <result column="costomer_id" property="costomerId"/>
+                    <result column="name" property="name"/>
+                    <result column="status" property="status"/>
+                    <result column="in_time" property="inTime"/>
+                    <result column="out_time" property="outTime"/>
+                    <result column="remark" property="remark"/>
+        </resultMap>
+
+    <sql id="selectVo">
+        select
+        id, car_id, car_code, costomer_id, name, status, in_time, out_time, remark
+       from factory a
+    </sql>
+    <select id="getListByCondition" parameterType="com.cxfx.car.entity.Factory" resultMap="BaseResultMap">
+        <include refid="selectVo"></include>
+         where 1=1
+    </select>
+
+</mapper>

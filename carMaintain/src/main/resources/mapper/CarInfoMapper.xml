@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cxfx.car.mapper.CarInfoMapper">
+        <!-- 通用查询映射结果 -->
+        <resultMap id="BaseResultMap" type="com.cxfx.car.entity.CarInfo">
+                    <id column="car_id" property="carId"/>
+                    <result column="customer_id" property="customerId"/>
+                    <result column="car_code" property="carCode"/>
+                    <result column="name" property="name"/>
+                    <result column="car_number" property="carNumber"/>
+                    <result column="car_model" property="carModel"/>
+                    <result column="car_type" property="carType"/>
+                    <result column="car_brand" property="carBrand"/>
+                    <result column="engine_number" property="engineNumber"/>
+                    <result column="chassis_number" property="chassisNumber"/>
+                    <result column="use_unit" property="useUnit"/>
+                    <result column="duty_person" property="dutyPerson"/>
+                    <result column="maintain_time" property="maintainTime"/>
+                    <result column="createTime" property="createTime"/>
+                    <result column="remark" property="remark"/>
+        </resultMap>
+
+    <sql id="selectVo">
+        select
+        car_id, customer_id, car_code, name, car_number, car_model, car_type, car_brand, engine_number, chassis_number, use_unit, duty_person, maintain_time, createTime, remark
+       from car_info a
+    </sql>
+    <select id="getListByCondition" parameterType="com.cxfx.car.entity.CarInfo" resultMap="BaseResultMap">
+        <include refid="selectVo"></include>
+         where 1=1
+    </select>
+
+</mapper>

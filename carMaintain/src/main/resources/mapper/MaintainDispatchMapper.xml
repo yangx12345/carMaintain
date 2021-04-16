@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cxfx.car.mapper.MaintainDispatchMapper">
+        <!-- 通用查询映射结果 -->
+        <resultMap id="BaseResultMap" type="com.cxfx.car.entity.MaintainDispatch">
+                    <id column="id" property="id"/>
+                    <result column="user_id" property="userId"/>
+                    <result column="user_name" property="userName"/>
+                    <result column="order_id" property="orderId"/>
+                    <result column="customer_id" property="customerId"/>
+                    <result column="customer_name" property="customerName"/>
+                    <result column="car_id" property="carId"/>
+                    <result column="car_code" property="carCode"/>
+                    <result column="time" property="time"/>
+                    <result column="status" property="status"/>
+                    <result column="remark" property="remark"/>
+        </resultMap>
+
+    <sql id="selectVo">
+        select
+        id, user_id, user_name, order_id, customer_id, customer_name, car_id, car_code, time, status, remark
+       from maintain_dispatch a
+    </sql>
+    <select id="getListByCondition" parameterType="com.cxfx.car.entity.MaintainDispatch" resultMap="BaseResultMap">
+        <include refid="selectVo"></include>
+         where 1=1
+    </select>
+
+</mapper>
