@@ -1,31 +1,31 @@
 package com.cxfx.car.service;
 
-import com.cxfx.car.entity.Order;
+import com.cxfx.car.entity.MaintainOrder;
 import com.baomidou.mybatisplus.extension.service.IService;
 import java.util.List;
 
 
-public interface OrderService extends IService<Order> {
+public interface MaintainOrderService extends IService<MaintainOrder> {
 
     /**
      * 根据id查询实体
      */
-    public Order getEntityById(Integer id);
+    public MaintainOrder getEntityById(Integer id);
 
     /**
      * 根据条件查询实体列表
      */
-    public List<Order> getListByCondition(Order condition);
+    public List<MaintainOrder> getListByCondition(MaintainOrder condition);
 
     /**
      *  保存实体
      */
-    public boolean saveEntity(Order entity);
+    public boolean saveEntity(MaintainOrder entity);
 
     /**
      *  更新实体
      */
-    public boolean updateEntity(Order entity);
+    public boolean updateEntity(MaintainOrder entity);
 
     /**
      *  根据id删除实体

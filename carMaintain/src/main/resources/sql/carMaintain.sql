@@ -1,7 +1,7 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : yang
+ Source Server         : localhost
  Source Server Type    : MySQL
  Source Server Version : 50728
  Source Host           : localhost:3306
@@ -11,7 +11,7 @@
  Target Server Version : 50728
  File Encoding         : 65001
 
- Date: 15/04/2021 21:09:11
+ Date: 22/04/2021 10:20:08
 */
 
 SET NAMES utf8mb4;
@@ -152,28 +152,10 @@ CREATE TABLE `maintain_dispatch`  (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for maintain_project
+-- Table structure for maintain_order
 -- ----------------------------
-DROP TABLE IF EXISTS `maintain_project`;
-CREATE TABLE `maintain_project`  (
-  `project_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '保养项目编号',
-  `project_name` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '保养项目名称',
-  `description` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '项目描述',
-  `price` decimal(10, 2) NULL DEFAULT NULL COMMENT '保养价格',
-  `order_price` decimal(10, 2) NULL DEFAULT NULL COMMENT '预定定金',
-  `remark` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '备注',
-  PRIMARY KEY (`project_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '保养项目表' ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of maintain_project
--- ----------------------------
-
--- ----------------------------
--- Table structure for order
--- ----------------------------
-DROP TABLE IF EXISTS `order`;
-CREATE TABLE `order`  (
+DROP TABLE IF EXISTS `maintain_order`;
+CREATE TABLE `maintain_order`  (
   `order_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '订单编号',
   `customer_id` int(11) NOT NULL COMMENT '客户编号',
   `customer_name` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '客户姓名',
@@ -189,7 +171,25 @@ CREATE TABLE `order`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '订单表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Records of order
+-- Records of maintain_order
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for maintain_project
+-- ----------------------------
+DROP TABLE IF EXISTS `maintain_project`;
+CREATE TABLE `maintain_project`  (
+  `project_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '保养项目编号',
+  `project_name` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '保养项目名称',
+  `description` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '项目描述',
+  `price` decimal(10, 2) NULL DEFAULT NULL COMMENT '保养价格',
+  `order_price` decimal(10, 2) NULL DEFAULT NULL COMMENT '预定定金',
+  `remark` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '备注',
+  PRIMARY KEY (`project_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '保养项目表' ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of maintain_project
 -- ----------------------------
 
 -- ----------------------------

@@ -12,17 +12,17 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.cxfx.car.service.OrderService;
-import com.cxfx.car.entity.Order;
+import com.cxfx.car.service.MaintainOrderService;
+import com.cxfx.car.entity.MaintainOrder;
 
 import java.util.List;
 
 @Slf4j
 @RestController
-@RequestMapping("/order")
-public class OrderController {
+@RequestMapping("/maintainorder")
+public class MaintainOrderController {
     @Autowired
-    private OrderService orderService;
+    private MaintainOrderService maintainOrderService;
 
     /**
     * 根据id查询实体
@@ -34,21 +34,21 @@ public class OrderController {
         {
             return ResultUtil.parameterError();
         }
-        return ResultUtil.success(orderService.getEntityById(id));
+        return ResultUtil.success(maintainOrderService.getEntityById(id));
     }
 
     /**
     * 根据条件查询实体列表
     */
     @PostMapping("getListByCondition")
-    public Result getListByCondition(@RequestBody Order condition,@RequestParam("pageIndex") Integer pageIndex,@RequestParam("pageSize") Integer pageSize)
+    public Result getListByCondition(@RequestBody MaintainOrder condition,@RequestParam("pageIndex") Integer pageIndex,@RequestParam("pageSize") Integer pageSize)
     {
         if(condition==null || pageIndex==null || pageIndex< 1||pageSize==null||pageSize< 1){
 		 return ResultUtil.parameterError();
         }
 		PageHelper.startPage(pageIndex, pageSize);
-        List<Order> list= orderService.getListByCondition(condition);
-		PageInfo<Order> result = new PageInfo<>(list);
+        List<MaintainOrder> list= maintainOrderService.getListByCondition(condition);
+		PageInfo<MaintainOrder> result = new PageInfo<>(list);
         return ResultUtil.success(result);
     }
 
@@ -56,12 +56,12 @@ public class OrderController {
     * 增加实体
     */
     @PostMapping("add")
-    public Result add(@RequestBody Order entity)
+    public Result add(@RequestBody MaintainOrder entity)
     {
         if(entity==null){
 		return ResultUtil.parameterError();
         }
-        return ResultUtil.judgmentResult(orderService.saveEntity(entity));
+        return ResultUtil.judgmentResult(maintainOrderService.saveEntity(entity));
     }
 
 
@@ -69,12 +69,12 @@ public class OrderController {
     * 更新实体
     */
     @PutMapping("update")
-    public Result update(@RequestBody Order entity)
+    public Result update(@RequestBody MaintainOrder entity)
     {
         if(entity==null){
 		return ResultUtil.parameterError();
         }
-        return ResultUtil.judgmentResult(orderService.updateEntity(entity));
+        return ResultUtil.judgmentResult(maintainOrderService.updateEntity(entity));
     }
 
 
@@ -87,7 +87,7 @@ public class OrderController {
         if(id==null){
 		 return ResultUtil.parameterError();
         }
-        return ResultUtil.judgmentResult(orderService.deleteById(id));
+        return ResultUtil.judgmentResult(maintainOrderService.deleteById(id));
     }
 
     /**
@@ -100,7 +100,7 @@ public class OrderController {
         {
 		  return ResultUtil.parameterError();
         }
-        return ResultUtil.judgmentResult(orderService.deleteByIds(ids));
+        return ResultUtil.judgmentResult(maintainOrderService.deleteByIds(ids));
     }
 }
 

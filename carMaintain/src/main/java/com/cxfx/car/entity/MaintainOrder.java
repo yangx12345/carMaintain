@@ -13,8 +13,8 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper = false)
-@TableName("order")
-public class Order implements Serializable {
+@TableName("maintain_order")
+public class MaintainOrder implements Serializable {
 
     private static final long serialVersionUID=1L;
 

@@ -1,8 +1,8 @@
 package com.cxfx.car.service.impl;
 
-import com.cxfx.car.entity.Order;
-import com.cxfx.car.mapper.OrderMapper;
-import com.cxfx.car.service.OrderService;
+import com.cxfx.car.entity.MaintainOrder;
+import com.cxfx.car.mapper.MaintainOrderMapper;
+import com.cxfx.car.service.MaintainOrderService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -17,27 +17,27 @@ import java.util.List;
 @Service
 @Transactional(readOnly = true)
 @Slf4j
-public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order>implements OrderService {
+public class MaintainOrderServiceImpl extends ServiceImpl<MaintainOrderMapper, MaintainOrder>implements MaintainOrderService {
 
     @Override
-    public Order getEntityById(Integer id){
+    public MaintainOrder getEntityById(Integer id){
         return this.getById(id);
     }
 
     @Override
-    public List<Order>getListByCondition(Order condition){
+    public List<MaintainOrder>getListByCondition(MaintainOrder condition){
 		return baseMapper.getListByCondition(condition);
     }
 
     @Override
     @Transactional(readOnly=false,rollbackFor=Exception.class)
-    public boolean saveEntity(Order entity){
+    public boolean saveEntity(MaintainOrder entity){
         return this.save(entity);
     }
 
     @Override
     @Transactional(readOnly=false,rollbackFor=Exception.class)
-    public boolean updateEntity(Order entity){
+    public boolean updateEntity(MaintainOrder entity){
         return this.updateById(entity);
     }
 
