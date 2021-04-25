@@ -1,7 +1,4 @@
-/**
- * @author chuzhixin 1204505056@qq.com
- * @description vue.config.js全局配置
- */
+
 const chalk = require('chalk')
 const path = require('path')
 const fs = require('fs')
@@ -42,7 +39,6 @@ if (process.env.NODE_ENV === 'production') {
 }
 const { version, author } = require('./package.json')
 const Webpack = require('webpack')
-const WebpackBar = require('webpackbar')
 const FileManagerPlugin = require('filemanager-webpack-plugin')
 const dayjs = require('dayjs')
 const time = dayjs().format('YYYY-M-D HH:mm:ss')
@@ -101,12 +97,6 @@ module.exports = {
           '*': resolve(''),
         },
       },
-      plugins: [
-        new Webpack.ProvidePlugin(providePlugin),
-        new WebpackBar({
-          name: '哈哈哈',
-        }),
-      ],
     }
   },
   chainWebpack(config) {
