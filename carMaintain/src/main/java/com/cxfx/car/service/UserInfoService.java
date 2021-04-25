@@ -37,4 +37,7 @@ public interface UserInfoService extends IService<UserInfo> {
      */
     public boolean deleteByIds(String ids);
 
+	UserInfo getByUsernameAndPassword(String username, String password);
+
+    UserInfo getUserInfoByUserId(Integer userId);
 }

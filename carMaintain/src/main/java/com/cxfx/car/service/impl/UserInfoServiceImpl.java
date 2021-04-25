@@ -48,6 +48,16 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo>im
     }
 
     @Override
+    public UserInfo getUserInfoByUserId(Integer userId) {
+        return null;
+    }
+
+    @Override
+    public UserInfo getByUsernameAndPassword(String username, String password) {
+        return null;
+    }
+
+    @Override
     @Transactional(readOnly=false,rollbackFor=Exception.class)
     public boolean deleteByIds(String ids){
         Integer[]Ids=Convert.toIntArray(ids);

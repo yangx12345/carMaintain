@@ -1,8 +1,12 @@
 package com.cxfx.car.config;
 
+import com.cxfx.car.common.Interceptor.AuthenticationInterceptor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
@@ -10,6 +14,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  */
 @Configuration
 public class GlobalCrosConfig {
+
+    @Autowired
+    private AuthenticationInterceptor authenticationInterceptor;
+
     @Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
@@ -28,6 +36,25 @@ public class GlobalCrosConfig {
                         .allowedHeaders("*")
                         //暴露哪些头部信息（因为跨域访问默认不能获取全部头部信息）
                         .exposedHeaders("Header1", "Header2");
+
+            }
+            @Override
+            public void addInterceptors(InterceptorRegistry registry) {
+                registry.addInterceptor(authenticationInterceptor)
+                        .addPathPatterns("/**")
+                        .excludePathPatterns("/user/login")
+                        .excludePathPatterns("/type/getListByCondition")
+                        .excludePathPatterns("/goods/getListByCondition")
+                        .excludePathPatterns("/goods/getById/{id}")
+                        .excludePathPatterns("/imgs/**")
+                        .excludePathPatterns("/user/register")
+                        .excludePathPatterns("/type/getTypeSelect");
+            }
+
+            //添加访问后端静态资源
+            @Override
+            public void addResourceHandlers(ResourceHandlerRegistry registry){
+                registry.addResourceHandler("/imgs/**").addResourceLocations("classpath:/imgs/");
             }
         };
     }
