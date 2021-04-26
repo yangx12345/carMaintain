@@ -42,13 +42,8 @@ public class GlobalCrosConfig {
             public void addInterceptors(InterceptorRegistry registry) {
                 registry.addInterceptor(authenticationInterceptor)
                         .addPathPatterns("/**")
-                        .excludePathPatterns("/user/login")
-                        .excludePathPatterns("/type/getListByCondition")
-                        .excludePathPatterns("/goods/getListByCondition")
-                        .excludePathPatterns("/goods/getById/{id}")
-                        .excludePathPatterns("/imgs/**")
-                        .excludePathPatterns("/user/register")
-                        .excludePathPatterns("/type/getTypeSelect");
+                        .excludePathPatterns("/userinfo/login")
+                        .excludePathPatterns("/userinfo/register");
             }
 
             //添加访问后端静态资源

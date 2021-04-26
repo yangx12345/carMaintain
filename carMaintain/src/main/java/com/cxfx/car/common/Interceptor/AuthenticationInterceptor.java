@@ -5,6 +5,7 @@ import com.cxfx.car.common.result.ResultEnum;
 import com.cxfx.car.common.utils.JwtUtils;
 import com.cxfx.car.common.utils.StringUtils;
 //import com.cxfx.car.service.UserService;
+import com.cxfx.car.service.UserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -15,14 +16,14 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Description: 权限过滤
+ * Description: 权限拦截器
  *
  **/
 @Component
 public class AuthenticationInterceptor implements HandlerInterceptor {
 
-//	@Autowired
-//    private UserService userService;
+	@Autowired
+    private UserInfoService userInfoService;
 
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
@@ -37,8 +38,8 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
 			throw new BusinessException(ResultEnum.NO_AUTH.getCode(),ResultEnum.NO_AUTH.getMessage());
 		}
 		String userName = JwtUtils.getClaimValueByToken(token,"userName");
-		//String password = userService.getPasswordByUserName(userName);
-		if (StringUtils.isEmpty("password") || JwtUtils.verify(token,"password") == null)
+		String password = userInfoService.getPasswordByUserName(userName);
+		if (StringUtils.isEmpty(password) || JwtUtils.verify(token,password) == null)
 		{
 			throw new BusinessException(ResultEnum.ERROR.getCode(),"用户登陆信息失效，请重新登录");
 		}

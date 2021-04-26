@@ -1,5 +1,8 @@
 package com.cxfx.car.service.impl;
 
+import cn.hutool.crypto.SecureUtil;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.cxfx.car.common.utils.StringUtils;
 import com.cxfx.car.entity.UserInfo;
 import com.cxfx.car.mapper.UserInfoMapper;
 import com.cxfx.car.service.UserInfoService;
@@ -49,12 +52,16 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo>im
 
     @Override
     public UserInfo getUserInfoByUserId(Integer userId) {
-        return null;
+        QueryWrapper<UserInfo> queryWrapper = new QueryWrapper<>();
+        queryWrapper.select("user_id","username","name","role","work_id").eq("user_id",userId);
+        return baseMapper.selectOne(queryWrapper);
     }
 
     @Override
     public UserInfo getByUsernameAndPassword(String username, String password) {
-        return null;
+        QueryWrapper<UserInfo> queryWrapper = new QueryWrapper<>();
+        queryWrapper.select("user_id","username","role","work_id").eq("username",username).eq("password", SecureUtil.md5(password));
+        return baseMapper.selectOne(queryWrapper);
     }
 
     @Override
@@ -63,5 +70,16 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo>im
         Integer[]Ids=Convert.toIntArray(ids);
         List<Integer>idList=Arrays.asList(Ids);
         return this.removeByIds(idList);
+    }
+
+    //根据用户名获取密码
+    @Override
+    public String getPasswordByUserName(String userName)
+    {
+        if (StringUtils.isEmpty(userName))
+        {
+            return "";
+        }
+        return baseMapper.getPasswordByUserName(userName);
     }
 }

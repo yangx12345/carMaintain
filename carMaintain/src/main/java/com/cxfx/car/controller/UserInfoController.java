@@ -132,10 +132,19 @@ public class UserInfoController {
         claimMap.put("role",findUser.getRole());
         claimMap.put("userId",findUser.getUserId().toString());
         claimMap.put("userName",findUser.getUsername());
+        claimMap.put("workId",findUser.getWorkId());
         String token = JwtUtils.sign(claimMap, SecureUtil.md5(user.getPassword()),null);
         return ResultUtil.success("登录成功",token);
     }
 
+    /**
+     *
+     *  根据token获取用户编号 并获取用户信息
+     *
+     * @date 2021-04-26 9:14
+     * @param request
+     * @return com.cxfx.car.common.result.Result
+     **/
     @PostMapping("getUserInfoByToken")
     public Result getUserInfoByToken(HttpServletRequest request)
     {

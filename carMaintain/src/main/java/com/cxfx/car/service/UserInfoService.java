@@ -40,4 +40,6 @@ public interface UserInfoService extends IService<UserInfo> {
 	UserInfo getByUsernameAndPassword(String username, String password);
 
     UserInfo getUserInfoByUserId(Integer userId);
+
+    String getPasswordByUserName(String userName);
 }

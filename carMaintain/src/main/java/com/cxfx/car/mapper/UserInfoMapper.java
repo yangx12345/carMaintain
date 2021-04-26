@@ -15,4 +15,8 @@ public interface UserInfoMapper extends BaseMapper<UserInfo> {
      */
     List<UserInfo> getListByCondition(UserInfo condition);
 
+	/**
+	 * 根据用户名获取密码
+	 */
+	String getPasswordByUserName(String userName);
 }
