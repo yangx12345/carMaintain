@@ -11,7 +11,7 @@
  Target Server Version : 50728
  File Encoding         : 65001
 
- Date: 22/04/2021 10:20:08
+ Date: 26/04/2021 10:46:51
 */
 
 SET NAMES utf8mb4;
@@ -22,7 +22,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `car_info`;
 CREATE TABLE `car_info`  (
-  `car_id` int(11) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT COMMENT '车辆编号',
+  `car_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '车辆编号',
   `customer_id` int(11) NOT NULL COMMENT '客户编号',
   `car_code` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '车辆编码(车厂区分车辆的编码)',
   `name` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '客户姓名',
@@ -49,7 +49,7 @@ CREATE TABLE `car_info`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `customer_info`;
 CREATE TABLE `customer_info`  (
-  `customer_id` int(11) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT COMMENT '客户编号',
+  `customer_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '客户编号',
   `username` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '用户名',
   `password` varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '密码',
   `name` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '姓名',
@@ -75,7 +75,7 @@ CREATE TABLE `customer_info`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `department`;
 CREATE TABLE `department`  (
-  `id` int(11) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT,
+  `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '部门名称',
   `enabled` tinyint(1) NULL DEFAULT 1 COMMENT '部门状态',
   `createTime` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',
@@ -86,33 +86,33 @@ CREATE TABLE `department`  (
 -- ----------------------------
 -- Records of department
 -- ----------------------------
-INSERT INTO `department` VALUES (00000000001, '股东会', 1, NULL, NULL);
-INSERT INTO `department` VALUES (00000000004, '董事会', 1, NULL, NULL);
-INSERT INTO `department` VALUES (00000000005, '总办', 1, NULL, NULL);
-INSERT INTO `department` VALUES (00000000008, '财务部', 1, NULL, NULL);
-INSERT INTO `department` VALUES (00000000078, '市场部', 1, NULL, NULL);
-INSERT INTO `department` VALUES (00000000081, '华北市场部', 1, NULL, NULL);
-INSERT INTO `department` VALUES (00000000082, '华南市场部', 1, NULL, NULL);
-INSERT INTO `department` VALUES (00000000085, '石家庄市场部', 1, NULL, NULL);
-INSERT INTO `department` VALUES (00000000086, '西北市场部', 1, NULL, NULL);
-INSERT INTO `department` VALUES (00000000087, '西安市场', 1, NULL, NULL);
-INSERT INTO `department` VALUES (00000000089, '莲湖区市场', 1, NULL, NULL);
-INSERT INTO `department` VALUES (00000000091, '技术部', 1, NULL, NULL);
-INSERT INTO `department` VALUES (00000000092, '运维部', 1, NULL, NULL);
-INSERT INTO `department` VALUES (00000000093, '运维1部', 1, NULL, NULL);
-INSERT INTO `department` VALUES (00000000094, '运维2部', 1, NULL, NULL);
-INSERT INTO `department` VALUES (00000000096, 'bbb', 1, NULL, NULL);
-INSERT INTO `department` VALUES (00000000104, '111', 1, NULL, NULL);
-INSERT INTO `department` VALUES (00000000105, '测试1', 1, NULL, NULL);
-INSERT INTO `department` VALUES (00000000114, '213', 1, NULL, NULL);
-INSERT INTO `department` VALUES (00000000115, '123', 1, NULL, NULL);
+INSERT INTO `department` VALUES (1, '股东会', 1, NULL, NULL);
+INSERT INTO `department` VALUES (4, '董事会', 1, NULL, NULL);
+INSERT INTO `department` VALUES (5, '总办', 1, NULL, NULL);
+INSERT INTO `department` VALUES (8, '财务部', 1, NULL, NULL);
+INSERT INTO `department` VALUES (78, '市场部', 1, NULL, NULL);
+INSERT INTO `department` VALUES (81, '华北市场部', 1, NULL, NULL);
+INSERT INTO `department` VALUES (82, '华南市场部', 1, NULL, NULL);
+INSERT INTO `department` VALUES (85, '石家庄市场部', 1, NULL, NULL);
+INSERT INTO `department` VALUES (86, '西北市场部', 1, NULL, NULL);
+INSERT INTO `department` VALUES (87, '西安市场', 1, NULL, NULL);
+INSERT INTO `department` VALUES (89, '莲湖区市场', 1, NULL, NULL);
+INSERT INTO `department` VALUES (91, '技术部', 1, NULL, NULL);
+INSERT INTO `department` VALUES (92, '运维部', 1, NULL, NULL);
+INSERT INTO `department` VALUES (93, '运维1部', 1, NULL, NULL);
+INSERT INTO `department` VALUES (94, '运维2部', 1, NULL, NULL);
+INSERT INTO `department` VALUES (96, 'bbb', 1, NULL, NULL);
+INSERT INTO `department` VALUES (104, '111', 1, NULL, NULL);
+INSERT INTO `department` VALUES (105, '测试1', 1, NULL, NULL);
+INSERT INTO `department` VALUES (114, '213', 1, NULL, NULL);
+INSERT INTO `department` VALUES (115, '123', 1, NULL, NULL);
 
 -- ----------------------------
 -- Table structure for factory
 -- ----------------------------
 DROP TABLE IF EXISTS `factory`;
 CREATE TABLE `factory`  (
-  `id` int(11) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT COMMENT '出入厂记录编号',
+  `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '出入厂记录编号',
   `car_id` int(11) NOT NULL COMMENT '车辆信息编号',
   `car_code` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '车辆编码',
   `costomer_id` int(11) NOT NULL COMMENT '客户编号',
@@ -197,7 +197,7 @@ CREATE TABLE `maintain_project`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `performance`;
 CREATE TABLE `performance`  (
-  `id` int(11) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT COMMENT '记录id',
+  `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '记录id',
   `user_id` int(11) NOT NULL COMMENT '用户编号',
   `name` varchar(12) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '真实姓名',
   `work_id` char(6) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '员工工号',
@@ -224,7 +224,7 @@ CREATE TABLE `performance`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `reception`;
 CREATE TABLE `reception`  (
-  `reception_id` int(11) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT COMMENT '接待编号',
+  `reception_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '接待编号',
   `user_id` int(11) NOT NULL COMMENT '接待员编号',
   `work_id` char(6) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '接待员工号',
   `user_name` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '接待员姓名',
@@ -272,7 +272,7 @@ CREATE TABLE `settle`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `user_info`;
 CREATE TABLE `user_info`  (
-  `user_id` int(11) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT COMMENT '用户id',
+  `user_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '用户id',
   `username` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '用户名',
   `password` varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '密码',
   `role` char(1) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '角色 0系统管理员 1接待员 2技工',
@@ -289,18 +289,19 @@ CREATE TABLE `user_info`  (
   `remark` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`user_id`) USING BTREE,
   UNIQUE INDEX `uqe_username`(`username`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '用户信息表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '用户信息表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of user_info
 -- ----------------------------
+INSERT INTO `user_info` VALUES (1, 'admin', '96e79218965eb72c92a549dd5a330112', '0', '迪迦奥特曼', 1, '0', '2021-04-16', '', '', '2021-02-16 15:28:37', '123', '000001', '0', NULL);
 
 -- ----------------------------
 -- Table structure for warehouse
 -- ----------------------------
 DROP TABLE IF EXISTS `warehouse`;
 CREATE TABLE `warehouse`  (
-  `id` int(11) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT COMMENT '仓库管理编号',
+  `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '仓库管理编号',
   `name` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '商品名称',
   `model` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '型号',
   `number` int(11) NULL DEFAULT 0 COMMENT '剩余数量',
@@ -319,7 +320,7 @@ CREATE TABLE `warehouse`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `warehouse_record`;
 CREATE TABLE `warehouse_record`  (
-  `id` int(11) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT COMMENT '出入库记录编号',
+  `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '出入库记录编号',
   `user_id` int(11) NOT NULL COMMENT '操作员编号',
   `work_id` char(6) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '操作员工号',
   `user_name` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '操作员姓名',

@@ -32,7 +32,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
 			response.setStatus(HttpServletResponse.SC_OK);
 			return true;
 		}
-		String token = request.getHeader("token");
+		String token = request.getHeader("accessToken");
 		if (StringUtils.isEmpty(token))
 		{
 			throw new BusinessException(ResultEnum.NO_AUTH.getCode(),ResultEnum.NO_AUTH.getMessage());

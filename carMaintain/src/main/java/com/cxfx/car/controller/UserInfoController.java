@@ -133,8 +133,8 @@ public class UserInfoController {
         claimMap.put("userId",findUser.getUserId().toString());
         claimMap.put("userName",findUser.getUsername());
         claimMap.put("workId",findUser.getWorkId());
-        String token = JwtUtils.sign(claimMap, SecureUtil.md5(user.getPassword()),null);
-        return ResultUtil.success("登录成功",token);
+        String accessToken = JwtUtils.sign(claimMap, SecureUtil.md5(user.getPassword()),null);
+        return ResultUtil.success("登录成功",accessToken);
     }
 
     /**
@@ -148,7 +148,7 @@ public class UserInfoController {
     @PostMapping("getUserInfoByToken")
     public Result getUserInfoByToken(HttpServletRequest request)
     {
-        String token = request.getHeader("token");
+        String token = request.getHeader("accessToken");
         Integer userId = Integer.valueOf(JwtUtils.getClaimValueByToken(token,"userId"));
         return ResultUtil.success(userInfoService.getUserInfoByUserId(userId));
     }
